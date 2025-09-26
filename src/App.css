@@ -1,0 +1,126 @@
+/* Impostazioni base per pagina full screen */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Evita scroll orizzontale*/
+}
+
+body {
+  background-color: #333;
+  color: white;
+}
+
+/* Hero section con sfondo immagine che si estende */
+.hero-image {
+  background-image: url('/sfondo.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+/* Box testo in hero section centrato */
+.hero-text {
+  background: rgba(50, 50, 50, 0.8);
+  display: inline-block;
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Sezione pasti allargata con margin */
+.meals-section {
+  max-width: 900px;
+  margin: 40px auto 80px auto;
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Stili lista pasti con display flessibile */
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+}
+
+.meal-name-desc {
+  flex: 1 1 380px;
+}
+
+.meal-name-desc h3 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  color: #222;
+}
+
+.meal-name-desc p {
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+
+/* Controlli pasto allineati in riga */
+.meal-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  margin-right: 15px;
+}
+
+.amount-label {
+  font-weight: 700;
+  min-width: 60px;
+  color: #7a2601;
+}
+
+.amount-counter {
+  width: 30px;
+  text-align: center;
+  border: 1px solid #7a2601;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #7a2601;
+  user-select: none;
+  padding: 2px 0;
+}
+
+.add-button {
+  background-color: #7a2601;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #9f3304; /* colore più chiaro per evidenziare */
+}
+
+.price {
+  color: #7a2601;
+  font-weight: 700;
+  font-size: 18px;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Assicura che la sezione principale riempia il viewport */
+#root, #root > div {
+  min-height: 100vh;
+  width: 100vw;
+}

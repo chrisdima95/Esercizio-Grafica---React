@@ -1,0 +1,45 @@
+.order-button, .submit-order-button {
+  background-color: #7a2601;
+  color: white;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  margin-top: 12px;
+}
+
+.order-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+}
+
+.order-form button {
+  margin-top: 16px;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  position: fixed; /* fissata rispetto alla viewport */
+  top: 50px; /* distanza dal top, puoi regolare */
+  left: 50%;
+  transform: translateX(-50%); /* centratura orizzontale */
+  max-height: 80vh; /* max altezza quanto 80% viewport altezza */
+  overflow-y: auto; /* scrollbar verticale se contenuto lungo */
+  z-index: 10001;
+}

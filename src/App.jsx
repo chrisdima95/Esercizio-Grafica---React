@@ -1,0 +1,109 @@
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import CartModal from "./components/CartModal";
+import "./App.css";
+
+const initialMeals = [
+  { id: 1, name: "Sushi", description: "Finest fish and veggies", price: 22.99 },
+  { id: 2, name: "Schnitzel", description: "Finest breaded and fried meat", price: 12.99 },
+  { id: 3, name: "Green Bowl", description: "Healthy...and green...", price: 18.99 },
+  { id: 4, name: "Honey", description: "The sweetest taste ever", price: 20.0 },
+  { id: 5, name: "Sweeties", description: "The sweeties taste ever", price: 26.0 },
+  { id: 6, name: "WINSTER", description: "ryjn", price: 222.0 },
+];
+
+export default function App() {
+  const [amounts, setAmounts] = useState(() =>
+    initialMeals.reduce((acc, meal) => {
+      acc[meal.id] = 0;
+      return acc;
+    }, {})
+  );
+
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const resetCart = () => {
+    setCartItems([]);
+    setAmounts(
+      initialMeals.reduce((acc, meal) => {
+        acc[meal.id] = 0;
+        return acc;
+      }, {})
+    );
+  };
+
+  const handleAddToCart = (meal) => {
+    setAmounts((prev) => {
+      const newAmount = prev[meal.id] + 1;
+      const newAmounts = { ...prev, [meal.id]: newAmount };
+
+      setCartItems((prevCart) => {
+        const found = prevCart.find((item) => item.id === meal.id);
+        if (found) {
+          return prevCart.map((item) =>
+            item.id === meal.id ? { ...item, amount: newAmount } : item
+          );
+        } else {
+          return [...prevCart, { ...meal, amount: newAmount }];
+        }
+      });
+
+      return newAmounts;
+    });
+  };
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.amount, 0);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  return (
+    <>
+      <Navbar cartCount={totalItems} onCartClick={toggleCart} />
+      <div className="hero-image">
+        <div className="hero-text">
+          <h1>Delicious Food, Delivered To You</h1>
+          <p>
+            Choose your favorite meal from our broad selection of available
+            meals and enjoy a delicious lunch or dinner at home.
+          </p>
+          <p>
+            All our meals are cooked with high-quality ingredients,
+            just-in-time and of course by experienced chefs!
+          </p>
+        </div>
+      </div>
+
+      <div className="meals-section">
+        {initialMeals.map((meal) => (
+          <div key={meal.id} className="meal-item">
+            <div className="meal-name-desc">
+              <h3>{meal.name}</h3>
+              <p>
+                <i>{meal.description}</i>
+              </p>
+            </div>
+            <div className="meal-controls">
+              <label className="amount-label">Amount</label>
+              <div className="amount-counter">{amounts[meal.id]}</div>
+              <button
+                onClick={() => handleAddToCart(meal)}
+                className="add-button"
+                aria-label={`Add ${meal.name} to cart`}
+              >
+                + Add
+              </button>
+            </div>
+            <div className="price">${meal.price.toFixed(2)}</div>
+          </div>
+        ))}
+      </div>
+
+      {isCartOpen && (
+        <CartModal items={cartItems} onClose={toggleCart} resetCart={resetCart} />
+      )}
+    </>
+  );
+}
