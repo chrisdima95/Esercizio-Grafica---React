@@ -7,11 +7,15 @@
   align-items: center !important;
   font-weight: 700 !important;
   font-size: 18px !important;
-  min-height: 40px !important;
+  min-height: 80px !important; /* altezza navbar */
   line-height: 40px !important;
   box-sizing: border-box !important;
   width: 100%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* sotto modale */
 }
 
 .navbar h1 {
@@ -37,7 +41,7 @@
 }
 
 .cart-button:hover {
-  background-color: #9f3304; /* colore più chiaro o evidenziato */
+  background-color: #9f3304;
 }
 
 .cart-count {
@@ -47,3 +51,4 @@
   font-size: 14px !important;
   color: white !important;
 }
+

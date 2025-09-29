@@ -1,7 +1,12 @@
-import React from 'react';
-import './Navbar.css';
+import React, { JSX } from "react";
+import "../styles/Navbar.css";
 
-export default function Navbar({ cartCount, onCartClick }) {
+interface NavbarProps {
+  cartCount: number;
+  onCartClick: () => void;
+}
+
+export default function Navbar({ cartCount, onCartClick }: NavbarProps): JSX.Element {
   return (
     <nav className="navbar">
       <h1>React Meal</h1>
