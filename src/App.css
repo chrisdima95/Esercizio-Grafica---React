@@ -1,30 +1,39 @@
+/* Impostazioni base per pagina full screen */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Evita scroll orizzontale*/
+}
+
 body {
   background-color: #333;
   color: white;
-  margin: 0;
-  font-family: system-ui, sans-serif;
 }
 
-/* Hero section */
+/* Hero section con sfondo immagine che si estende */
 .hero-image {
   background-image: url('/sfondo.jpg');
   background-size: cover;
   background-position: center;
-  padding: 120px 20px 60px 20px;
+  padding: 120px 20px;
   text-align: center;
 }
 
+/* Box testo in hero section centrato */
 .hero-text {
   background: rgba(50, 50, 50, 0.8);
   display: inline-block;
-  padding: 100px 30px 30px 30px; /* sposta solo la scritta più in basso */
+  padding: 30px;
   border-radius: 10px;
   color: white;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* Sezione pasti */
+/* Sezione pasti allargata con margin */
 .meals-section {
   max-width: 900px;
   margin: 40px auto 80px auto;
@@ -35,7 +44,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Lista pasti */
+/* Stili lista pasti con display flessibile */
 .meal-item {
   display: flex;
   justify-content: space-between;
@@ -61,6 +70,7 @@ body {
   color: #555;
 }
 
+/* Controlli pasto allineati in riga */
 .meal-controls {
   display: flex;
   align-items: center;
@@ -98,7 +108,7 @@ body {
 }
 
 .add-button:hover {
-  background-color: #9f3304;
+  background-color: #9f3304; /* colore più chiaro per evidenziare */
 }
 
 .price {
@@ -107,4 +117,10 @@ body {
   font-size: 18px;
   min-width: 60px;
   text-align: right;
+}
+
+/* Assicura che la sezione principale riempia il viewport */
+#root, #root > div {
+  min-height: 100vh;
+  width: 100vw;
 }

@@ -25,6 +25,7 @@ interface FormData {
 export default function CartModal({ items, onClose, resetCart }: CartModalProps): JSX.Element {
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [orderSent, setOrderSent] = useState(false);
+  const [emptyCartMessage, setEmptyCartMessage] = useState(""); // nuovo stato per messaggio carrello vuoto
   const [formData, setFormData] = useState<FormData>({
     nome: "",
     telefono: "",
@@ -52,6 +53,15 @@ export default function CartModal({ items, onClose, resetCart }: CartModalProps)
     resetCart();
   };
 
+  const handleOrderClick = () => {
+    if (items.length === 0) {
+      setEmptyCartMessage("Il carrello è vuoto! Aggiungi dei piatti prima di ordinare 🍽️");
+      return;
+    }
+    setEmptyCartMessage(""); // reset messaggio se ci sono articoli
+    setShowOrderForm(true);
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -67,9 +77,16 @@ export default function CartModal({ items, onClose, resetCart }: CartModalProps)
           <strong>Total: </strong>${total.toFixed(2)}
         </div>
 
+        {/* Messaggio carrello vuoto */}
+        {emptyCartMessage && (
+          <p style={{ color: "red", fontWeight: 700, marginTop: "1rem" }}>
+            {emptyCartMessage}
+          </p>
+        )}
+
         {!showOrderForm && !orderSent && (
           <>
-            <button className="order-button" onClick={() => setShowOrderForm(true)}>
+            <button className="order-button" onClick={handleOrderClick}>
               Ordina
             </button>
             <button onClick={onClose} className="close-button" aria-label="Close Cart Modal">
