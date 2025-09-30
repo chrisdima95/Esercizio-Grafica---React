@@ -1,27 +1,68 @@
 .navbar {
-  background-color: #7a2601 !important;
-  color: white !important;
-  padding: 6px 20px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  min-height: 80px !important; /* altezza navbar */
-  line-height: 40px !important;
-  box-sizing: border-box !important;
-  width: 100%;
+  background-color: #7a2601;
+  color: white;
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  min-height: 80px;
+  box-sizing: border-box;
+  width: 100vw;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* sotto modale */
+  z-index: 1000;
 }
 
 .navbar h1 {
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 16px; /* distanza tra i bottoni */
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: #7a2601;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #9f3304;
+}
+
+.nav-button.active {
+  background-color: #bb4400;
+  font-weight: 900;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .cart-button {
@@ -45,10 +86,28 @@
 }
 
 .cart-count {
-  background: #bb4400 !important;
-  border-radius: 9999px !important;
-  padding: 2px 8px !important;
-  font-size: 14px !important;
-  color: white !important;
+  background: #bb4400;
+  border-radius: 9999px;
+  padding: 2px 8px;
+  font-size: 14px;
+  color: white;
 }
 
+.login-link {
+  padding: 8px 20px;
+  border-radius: 30px;
+  background-color: #7a2601;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.login-link:hover {
+  background-color: #9f3304;
+}

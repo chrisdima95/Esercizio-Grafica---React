@@ -1,6 +1,14 @@
 import React, { JSX, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import CartModal from "./components/CartModal";
+import Product from "./components/Product";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Merch from "./components/Merch";
+import Profile from "./components/Profile";
+
 import "./App.css";
 
 interface Meal {
@@ -69,43 +77,56 @@ export default function App(): JSX.Element {
   const toggleCart = () => setIsCartOpen(!isCartOpen);
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar cartCount={totalItems} onCartClick={toggleCart} />
 
       <div className="app-wrapper">
-        <div className="hero-image">
-          <div className="hero-text">
-            <h1>Delicious Food, Delivered To You</h1>
-            <p>
-              Choose your favorite meal from our broad selection of available meals and enjoy a delicious lunch or dinner at home.
-            </p>
-            <p>
-              All our meals are cooked with high-quality ingredients, just-in-time and of course by experienced chefs!
-            </p>
-          </div>
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="hero-image">
+                  <div className="hero-text">
+                    <h1>Delicious Food, Delivered To You</h1>
+                    <p>
+                      Choose your favorite meal from our broad selection of available meals and enjoy a delicious lunch or dinner at home.
+                    </p>
+                    <p>
+                      All our meals are cooked with high-quality ingredients, just-in-time and of course by experienced chefs!
+                    </p>
+                  </div>
+                </div>
 
-        <div className="meals-section">
-          {initialMeals.map((meal) => (
-            <div key={meal.id} className="meal-item">
-              <div className="meal-name-desc">
-                <h3>{meal.name}</h3>
-                <p><i>{meal.description}</i></p>
-              </div>
-              <div className="meal-controls">
-                <label className="amount-label">Amount</label>
-                <div className="amount-counter">{amounts[meal.id]}</div>
-                <button onClick={() => handleAddToCart(meal)} className="add-button">
-                  + Add
-                </button>
-              </div>
-              <div className="price">${meal.price.toFixed(2)}</div>
-            </div>
-          ))}
-        </div>
+                <div className="meals-section">
+                  {initialMeals.map((meal) => (
+                    <div key={meal.id} className="meal-item">
+                      <div className="meal-name-desc">
+                        <h3>{meal.name}</h3>
+                        <p><i>{meal.description}</i></p>
+                      </div>
+                      <div className="meal-controls">
+                        <label className="amount-label">Amount</label>
+                        <div className="amount-counter">{amounts[meal.id]}</div>
+                        <button onClick={() => handleAddToCart(meal)} className="add-button">
+                          + Add
+                        </button>
+                      </div>
+                      <div className="price">${meal.price.toFixed(2)}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/merch" element={<Merch />} />
+          <Route path="/product/:id" element={<Product />} />
+        </Routes>
       </div>
 
       {isCartOpen && <CartModal items={cartItems} onClose={toggleCart} resetCart={resetCart} />}
-    </>
+    </BrowserRouter>
   );
 }

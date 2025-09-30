@@ -1,28 +1,161 @@
-/* Impostazioni base per pagina full screen */
+/* Azzeramento margini e dimensioni base */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
   font-family: Arial, sans-serif;
-  overflow-x: hidden; /* Evita scroll orizzontale*/
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
+/* L'intera pagina scrolla verticalmente */
 body {
   background-color: #333;
   color: white;
+  overflow-y: auto;
 }
 
-/* Hero section con sfondo immagine che si estende */
+/* Navbar fissa in alto, copre tutta la larghezza */
+.navbar {
+  background-color: #7a2601 !important;
+  color: white !important;
+  padding: 6px 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  min-height: 80px !important;
+  line-height: 40px !important;
+  box-sizing: border-box !important;
+  width: 100vw !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Spazio a destra per bottoni */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar h1 {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Bottoni carrello */
+.cart-button {
+  background-color: #7a2601;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+}
+
+.cart-button:hover {
+  background-color: #9f3304;
+}
+
+.cart-count {
+  background: #bb4400 !important;
+  border-radius: 9999px !important;
+  padding: 2px 8px !important;
+  font-size: 14px !important;
+  color: white !important;
+}
+
+/* Link login come bottone */
+.login-link {
+  padding: 8px 20px;
+  border-radius: 30px;
+  background-color: #7a2601;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.login-link:hover {
+  background-color: #9f3304;
+}
+
+/* Contenuto della pagina */
+.app-wrapper {
+  padding-top: 80px;
+  width: 100vw;
+  margin: 0 auto;
+  background: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+/* Navbar centro con i bottoni Home, Merch e Profile */
+.navbar-center {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* distanza tra i bottoni */
+  flex-grow: 1;
+  align-items: center;
+}
+
+/* Stile bottoni navbar */
+.nav-button {
+  padding: 8px 20px;
+  border-radius: 25px;
+  background-color: #7a2601;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.nav-button:hover {
+  background-color: #9f3304;
+}
+
+.nav-button.active {
+  background-color: #bb4400;
+  font-weight: 900;
+}
+
+/* Hero section */
 .hero-image {
   background-image: url('/sfondo.jpg');
   background-size: cover;
   background-position: center;
   padding: 120px 20px;
   text-align: center;
+  width: 100%;
 }
 
-/* Box testo in hero section centrato */
+/* Hero text */
 .hero-text {
   background: rgba(50, 50, 50, 0.8);
   display: inline-block;
@@ -33,29 +166,31 @@ body {
   margin: 0 auto;
 }
 
-/* Sezione pasti allargata con margin */
+/* Meals section */
 .meals-section {
-  max-width: 900px;
+  max-width: none;
   margin: 40px auto 80px auto;
-  background: white;
-  color: black;
   padding: 30px;
   border-radius: 10px;
   box-sizing: border-box;
+  width: 100%;
 }
 
-/* Stili lista pasti con display flessibile */
+/* Meal items */
 .meal-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 20px;
   border-bottom: 1px solid #ccc;
   flex-wrap: wrap;
+  gap: 10px; /* spazio fra elementi */
 }
 
 .meal-name-desc {
-  flex: 1 1 380px;
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 60%;
 }
 
 .meal-name-desc h3 {
@@ -70,13 +205,14 @@ body {
   color: #555;
 }
 
-/* Controlli pasto allineati in riga */
+/* Controlli allineati a destra */
 .meal-controls {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 0 0 auto;
-  margin-right: 15px;
+  flex-shrink: 0;
+  min-width: 180px;
+  justify-content: flex-end;
 }
 
 .amount-label {
@@ -108,7 +244,7 @@ body {
 }
 
 .add-button:hover {
-  background-color: #9f3304; /* colore più chiaro per evidenziare */
+  background-color: #9f3304;
 }
 
 .price {
@@ -117,10 +253,5 @@ body {
   font-size: 18px;
   min-width: 60px;
   text-align: right;
-}
-
-/* Assicura che la sezione principale riempia il viewport */
-#root, #root > div {
-  min-height: 100vh;
-  width: 100vw;
+  flex-shrink: 0;
 }
