@@ -1,12 +1,17 @@
 import React, { useState, JSX } from "react";
+import { useUser } from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(): JSX.Element {
   const [username, setUsername] = useState("");
+  const { login } = useUser();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (username.trim()) {
-      alert(`Username inserito: ${username}`);
+      login(username.trim());
+      navigate('/');
     } else {
       alert("Inserisci un username valido");
     }

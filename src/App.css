@@ -16,7 +16,7 @@ body {
   overflow-y: auto;
 }
 
-/* Navbar fissa in alto, copre tutta la larghezza */
+/* Navbar fissa sopra il contenuto scrollabile */
 .navbar {
   background-color: #7a2601 !important;
   color: white !important;
@@ -29,12 +29,18 @@ body {
   min-height: 80px !important;
   line-height: 40px !important;
   box-sizing: border-box !important;
-  width: 100vw !important;
+  width: 100% !important;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Classe per nascondere la navbar durante lo scroll */
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 /* Spazio a destra per bottoni */
@@ -150,20 +156,47 @@ body {
   background-image: url('/sfondo.jpg');
   background-size: cover;
   background-position: center;
-  padding: 120px 20px;
+  background-repeat: no-repeat;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px 20px 60px 20px;
   text-align: center;
   width: 100%;
+  position: relative;
 }
 
 /* Hero text */
 .hero-text {
-  background: rgba(50, 50, 50, 0.8);
+  background: rgba(40, 40, 40, 0.85);
   display: inline-block;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 40px 50px;
+  border-radius: 15px;
   color: white;
   max-width: 700px;
   margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.hero-text h1 {
+  font-size: 2.5em;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+  opacity: 0.95;
+}
+
+.hero-text p:last-child {
+  margin-bottom: 0;
 }
 
 /* Meals section */

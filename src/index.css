@@ -34,7 +34,6 @@ body {
 
 /* Wrapper scrollabile */
 .app-wrapper {
-  padding-top: 80px; /* altezza navbar */
   height: 100%;
   overflow-y: scroll; /* scrollbar verticale visibile a destra */
   overflow-x: hidden;
@@ -74,6 +73,115 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Tema chiaro */
+body.light {
+  background-color: #ffffff !important;
+  color: #213547 !important;
+}
+
+body.light .app-wrapper {
+  background: #ffffff !important;
+  color: #213547 !important;
+}
+
+body.light .hero-text {
+  background: rgba(40, 40, 40, 0.85) !important;
+  color: white !important;
+}
+
+body.light .meals-section {
+  background: #ffffff !important;
+  color: #213547 !important;
+}
+
+body.light .meal-item {
+  background: #ffffff !important;
+  color: #213547 !important;
+  border-bottom-color: #e0e0e0 !important;
+}
+
+body.light .meal-name-desc h3 {
+  color: #213547 !important;
+}
+
+body.light .meal-name-desc p {
+  color: #666 !important;
+}
+
+body.light a:hover {
+  color: #747bff;
+}
+
+body.light button {
+  background-color: #f9f9f9;
+}
+
+body.light .navbar {
+  background-color: #7a2601 !important;
+}
+
+/* Tema scuro */
+body.dark {
+  background-color: #242424 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark .app-wrapper {
+  background: #242424 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark .hero-text {
+  background: rgba(40, 40, 40, 0.9) !important;
+  color: white !important;
+}
+
+body.dark .meals-section {
+  background: #242424 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark .meal-item {
+  background: #2a2a2a !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+  border-bottom-color: #404040 !important;
+}
+
+body.dark .meal-name-desc h3 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .meal-name-desc p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark .amount-label,
+body.dark .amount-counter,
+body.dark .price {
+  color: #ff8c42 !important;
+}
+
+body.dark .add-button {
+  background-color: #ff8c42 !important;
+  color: #242424 !important;
+}
+
+body.dark .add-button:hover {
+  background-color: #ff7a2b !important;
+}
+
+body.dark a:hover {
+  color: #535bf2;
+}
+
+body.dark button {
+  background-color: #1a1a1a;
+}
+
+body.dark .navbar {
+  background-color: #7a2601 !important;
 }
 
 @media (prefers-color-scheme: light) {
