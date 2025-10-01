@@ -164,12 +164,41 @@ body.dark .price {
 }
 
 body.dark .add-button {
-  background-color: #ff8c42 !important;
-  color: #242424 !important;
+  background-color: #7a2601 !important;
+  color: #ffffff !important;
 }
 
 body.dark .add-button:hover {
-  background-color: #ff7a2b !important;
+  background-color: #9f3304 !important;
+}
+
+/* Forza i pulsanti "+ Add" ad essere rossi anche in tema chiaro */
+body.light .add-button {
+  background-color: #7a2601 !important;
+  color: #ffffff !important;
+}
+
+body.light .add-button:hover {
+  background-color: #9f3304 !important;
+}
+
+/* Forza il bottone carrello ad essere rosso in entrambi i temi */
+body.light .cart-button {
+  background-color: #7a2601 !important;
+  color: #ffffff !important;
+}
+
+body.light .cart-button:hover {
+  background-color: #9f3304 !important;
+}
+
+body.dark .cart-button {
+  background-color: #7a2601 !important;
+  color: #ffffff !important;
+}
+
+body.dark .cart-button:hover {
+  background-color: #9f3304 !important;
 }
 
 body.dark a:hover {

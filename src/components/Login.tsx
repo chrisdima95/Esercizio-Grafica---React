@@ -2,16 +2,18 @@ import React, { useState, JSX } from "react";
 import { useUser } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
+// Componente di login che utilizza il contesto UserContext
 export default function Login(): JSX.Element {
   const [username, setUsername] = useState("");
-  const { login } = useUser();
+  const { login } = useUser(); // Accedi alla funzione di login dal contesto
   const navigate = useNavigate();
 
+  // Gestione del submit del form di login
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (username.trim()) {
-      login(username.trim());
-      navigate('/');
+    e.preventDefault(); 
+    if (username.trim()) { // Verifica che l'username non sia vuoto
+      login(username.trim()); // Esegui il login con l'username inserito
+      navigate('/'); // Reindirizza alla home page dopo il login
     } else {
       alert("Inserisci un username valido");
     }

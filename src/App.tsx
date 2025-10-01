@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Merch from "./components/Merch";
 import Profile from "./components/Profile";
-import ProtectedRoute from "./components/ProtectedRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 import { UserProvider } from "./contexts/UserContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -128,13 +128,13 @@ export default function App(): JSX.Element {
                   }
                 />
                 <Route path="/login" element={<Login />} />
-                <Route 
-                  path="/profile" 
+                <Route
+                  path="/profile"
                   element={
-                    <ProtectedRoute>
+                    <PrivateRoute>
                       <Profile />
-                    </ProtectedRoute>
-                  } 
+                    </PrivateRoute>
+                  }
                 />
                 <Route path="/merch" element={<Merch />} />
                 <Route path="/product/:id" element={<Product />} />

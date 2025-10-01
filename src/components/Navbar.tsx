@@ -77,10 +77,10 @@ export default function Navbar({ cartCount, onCartClick }: NavbarProps): JSX.Ele
         {user ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ color: 'white', fontWeight: 'bold' }}>
-              Ciao, {user.name}
+              Ciao, {user.name} 
             </span>
             <button 
-              onClick={logout}
+              onClick={logout} // Pulsante di logout
               style={{
                 padding: '8px 16px',
                 backgroundColor: '#7a2601',
@@ -96,7 +96,7 @@ export default function Navbar({ cartCount, onCartClick }: NavbarProps): JSX.Ele
           </div>
         ) : (
           <NavLink to="/login" className="login-link nav-button">
-            Accedi
+            Accedi 
           </NavLink>
         )}
       </div>

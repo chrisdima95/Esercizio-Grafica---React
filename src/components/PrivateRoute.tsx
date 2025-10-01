@@ -2,16 +2,20 @@ import React, { JSX, ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
-interface ProtectedRouteProps {
+interface PrivateRouteProps {
   children: ReactNode;
 }
 
-export default function ProtectedRoute({ children }: ProtectedRouteProps): JSX.Element {
+// Componente che protegge le rotte private, reindirizzando al login se l'utente non è autenticato
+export default function PrivateRoute({ children }: PrivateRouteProps): JSX.Element {
   const { user } = useUser();
 
+  // Se l'utente non è autenticato, reindirizza alla pagina di login
   if (!user || !user.loggedIn) {
     return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;
 }
+
+
