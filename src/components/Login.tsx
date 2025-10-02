@@ -56,6 +56,27 @@ export default function Login(): JSX.Element {
         >
           Accedi
         </button>
+
+        {/* Link alla registrazione */}
+        <div style={{ textAlign: "center", marginTop: "15px" }}>
+          <span style={{ fontSize: "14px", color: "#666" }}>
+            Non hai un account?{" "}
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/register');
+              }}
+              style={{ 
+                color: "#7a2601", 
+                textDecoration: "underline",
+                fontWeight: "bold"
+              }}
+            >
+              Registrati qui
+            </a>
+          </span>
+        </div>
       </form>
     </div>
   );

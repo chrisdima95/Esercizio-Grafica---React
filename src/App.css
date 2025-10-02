@@ -13,6 +13,7 @@ html, body, #root {
 body {
   background-color: #333;
   color: white;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
@@ -29,7 +30,7 @@ body {
   min-height: 80px !important;
   line-height: 40px !important;
   box-sizing: border-box !important;
-  width: 100% !important;
+  width: calc(100vw - 17px) !important;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
@@ -107,12 +108,13 @@ body {
 
 /* Contenuto della pagina */
 .app-wrapper {
-  padding-top: 80px;
-  width: 100vw;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   background: white;
   color: black;
   box-sizing: border-box;
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
 }
 
 /* Navbar centro con i bottoni Home, Merch e Profile */

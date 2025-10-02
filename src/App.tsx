@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import CartModal from "./components/CartModal";
 import Product from "./components/Product";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import Home from "./components/Home";
 import Merch from "./components/Merch";
 import Profile from "./components/Profile";
@@ -128,6 +129,7 @@ export default function App(): JSX.Element {
                   }
                 />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} /> // Rotta per la registrazione
                 <Route
                   path="/profile"
                   element={
